@@ -21,17 +21,10 @@
 
 <script>
 export default {
-  name: "NavbarPage",
+  name: "NavbarModule",
 };
 </script>
 
 <style>
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-nav ul li {
-  display: inline;
-}
+
 </style>
