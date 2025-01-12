@@ -1,3 +1,4 @@
+<template>
 <div class="section search">
     <div class="container">
         <div class="title-container center-title"><span class="title">Search a calculator</span></div>
@@ -27,3 +28,10 @@
     </div>
   </div>  
 </div>
+</template>
+
+<script>
+export default {
+  name: "HomePage",
+};
+</script>
