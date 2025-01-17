@@ -108,11 +108,19 @@ footer p {
 .three-elements .container .line .element{
     width:32%;
     height:200px;
-    background-color: var(--main-color);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 0 20px #d9dfee;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: flex-end;
+    border-top: 2px solid var(--main-color);
+    transition: all .5s;
+    cursor: pointer;
     margin-bottom:2%;
-}
-.section.search{
-    background-color: var(--main-color);
 }
 .section.search .container{
     display:flex;
@@ -122,8 +130,10 @@ footer p {
 .section.search .search-input{
     width:50%;
     display:flex;
-    border-radius:6px;
-    border:1px solid rgb(255, 255, 255);
+    box-shadow: 0 0 20px #d9dfee;
+    border-radius:5px;
+    border-top: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
     margin-bottom:2vh;
 }
 .section.search .search-input input{
@@ -131,14 +141,13 @@ footer p {
     color:var(--black);
     width:80%;
     outline:none;
+    padding: 15px;
     border:none;
-    border-radius: 6px 0 0 6px;
-    padding:20px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: transparent;
 }
 .section.search .search-input button{
     background-color:var(--white-color-transparency);
-    color:var(--white);
+    color:var(--main-color);
     font-weight: bold;
     font-size:var(--text-medium-size);
     width:20%;
@@ -165,7 +174,7 @@ footer p {
     text-align: center;
 }
 .title-container .title{
-    color:var(--white);
+    color:var(--main-color);
     font-size: var(--text-title-size);
     font-weight: bold;
 }
@@ -235,6 +244,12 @@ footer p {
         width:100%;
     }
     .section.search .search-input{
+        width:90%;
+    }
+    .three-elements .container .line {
+        justify-content: center;
+    }
+    .three-elements .container .element {
         width:90%;
     }
 }
