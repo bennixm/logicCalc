@@ -1,8 +1,10 @@
 <template>
-    <div>
-      <h1>Logical Operations</h1>
-      <p>Feel free to reach out through this page.</p>
-    </div>
+<div class="section three-elements">
+  <div class="container">
+    <div class="title-container center-title"><span class="title">Logical Operations</span></div>
+
+  </div>  
+</div>
   </template>
   
   <script>

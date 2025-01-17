@@ -1,8 +1,15 @@
 <template>
-  <div>
-    <h1>Calculators</h1>
-    <p>Feel free to reach out through this page.</p>
-  </div>
+<div class="section three-elements">
+  <div class="container">
+    <div class="title-container center-title"><span class="title">Choose a category</span></div>
+    <div class="line">
+        <div class="element">
+        </div>
+        <div class="element">
+        </div>
+    </div>
+  </div>  
+</div>
 </template>
 
 <script>

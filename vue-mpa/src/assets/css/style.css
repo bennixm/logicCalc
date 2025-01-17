@@ -19,7 +19,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: var(--white);
     color: #333;
 }
 
@@ -76,7 +76,7 @@ p {
 }
 
 footer {
-    background-color: #f4f4f4;
+    background-color: var(--white);
     color: #242424;
     text-align: center;
     padding: 10px 0;
@@ -92,8 +92,7 @@ footer p {
     width: 1025px;
     margin: 0 auto;
 }
-
-.section{
+.section.search .overlay{
     padding-top:2vh;
     padding-bottom:2vh;
 }
@@ -122,10 +121,18 @@ footer p {
     cursor: pointer;
     margin-bottom:2%;
 }
+.overlay{
+    background-color: rgba(255, 255, 255, 0.85);
+}
 .section.search .container{
     display:flex;
     align-items: center;
     flex-direction: column;
+}
+.section.search{
+    background-image: url(../../images/math-bg2.png);
+    background-position: center;
+    background-size: contain;
 }
 .section.search .search-input{
     width:50%;
