@@ -1,5 +1,6 @@
 <template>
 <div class="section search">
+  <div class="overlay">
     <div class="container">
         <div class="title-container center-title"><span class="title">Search a calculator</span></div>
         <div class="search-input">
@@ -7,6 +8,7 @@
             <button><i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
     </div>
+  </div>
 </div>
 <div class="section three-elements">
   <div class="container">
