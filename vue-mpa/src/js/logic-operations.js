@@ -167,3 +167,4 @@ class LogicalCalculator {
 document.addEventListener("DOMContentLoaded", () => {
     const calculator = new LogicalCalculator();
 });
+
