@@ -3,7 +3,7 @@
        <nav class="navbar">
         <div class="logo">
           <div class="logo-container">
-            
+            <div class="logo-img"></div>
           </div>
         </div>
         <div class="links">
