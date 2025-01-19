@@ -9,7 +9,7 @@
       </div>
       <div class="tablet">
         <div class="tablet-content">
-          
+
         </div>
       </div>
     </div>

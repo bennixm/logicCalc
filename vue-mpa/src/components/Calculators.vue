@@ -1,4 +1,14 @@
 <template>
+  <div class="section page calculators">
+  <div class="overlay shadow-overlay">
+      <div class="container">
+      <div class="title-container multiple-titles">
+        <span class="title xl-title">Calculators</span>
+        <span class="mini-title">Mathematical & Logical Calculator</span>
+      </div>
+      </div>
+    </div>
+  </div>
   <div class="section search">
   <div class="overlay white-overlay">
     <div class="container">
