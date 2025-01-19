@@ -4,7 +4,7 @@
       <div class="container">
       <div class="title-container multiple-titles">
         <span class="title xl-title">About us</span>
-        <span class="mini-title">Mathematical & Logical Calculator</span>
+        <span class="mini-title">How is our app working?</span>
       </div>
       </div>
     </div>
