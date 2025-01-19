@@ -30,16 +30,20 @@ body {
     color: #333;
 }
 .footer-credits .container{
-    padding-top:10px;
-    padding-bottom: 10px;
+    padding-top:3vh;
+    padding-bottom: 3vh;
     border-top:1px solid #e6e6e6;
     display:flex;
-    align-items: start;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .footer .container{
     display:flex;
     flex-direction: line;
     justify-content: space-between;
+    padding-top:3vh;
+    padding-bottom: 3vh;
 }
 .footer .container .columns{
     display: flex;
@@ -182,6 +186,31 @@ footer {
     width: 100%;
 }
 
+.footer-credits .logo{
+    height:100px;
+    width:250px;
+}
+.footer .columns .title{
+    font-size:var(--text-large-size);
+    color:var(--main-color);
+    padding-bottom: 15px;
+}
+.footer .columns{
+    width:33%;
+}
+
+.footer .columns a{
+    font-size: 15px;
+    transition:all .5s;
+}
+.footer .columns a:hover{
+    padding-left: 3px;
+    color:var(--main-color);
+}
+.footer .columns a:hover{
+    cursor:pointer;
+}
+
 footer p {
     font-size: 0.9rem;
 }
@@ -206,9 +235,6 @@ footer p {
     display:flex;
     flex-direction: column !important;
     align-items: flex-start;
-}
-.section.page.about .title-container{
-
 }
 .section.search .overlay{
     padding-top:2vh;

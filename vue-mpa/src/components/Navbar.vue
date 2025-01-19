@@ -16,7 +16,7 @@
         </div>
           <div class="mini-search">
           <div class="mini-search-container">
-            <input type="text" id="box" placeholder="Search a calculator..." class="search__box">
+            <input type="text" id="box" placeholder="Search" class="search__box">
             <i class="fa fa-search search__icon" id="icon" onclick="toggleShowSearch()"></i>
           </div>
        </div>

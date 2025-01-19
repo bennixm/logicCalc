@@ -25,6 +25,9 @@
   </div>
   <div class="footer-credits">
     <div class="container">
+      <div class="logo">
+        
+      </div>
       <span>&copy; LogiCalc. All rights reserved.</span>
     </div>
   </div>
