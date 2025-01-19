@@ -8,6 +8,7 @@
     --text-medium-size:17px;
     --text-large-size:20px;
     --text-title-size:22px;
+    --text-title-size-large:3.5vw;
 
     --subnav-background-color: rgba(255, 255, 255, 0.5);
     --subnav-inactive-color: #4F4F4F;
@@ -74,17 +75,39 @@ header .container{
     flex-direction: row;
     justify-content: space-between;
 }
-.navbar-element.scrolled-top{
-    background-color: var(--white);
-}
-.navbar-element.scrolled-top nav ul{
-    box-shadow: none;
-}
 .navbar .logo{
     width:15%;
+    display:flex;
+    justify-content: center;
 }
-.navbar .links {
-
+.logo-container{
+    width:80%;
+    -webkit-box-shadow: 0 0 40px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, .1);
+    background-color: var(--subnav-background-color);
+    -webkit-backdrop-filter: var(--subnav-backdrop-filter);
+    backdrop-filter: var(--subnav-backdrop-filter);
+    -webkit-transition-property: background-color, -webkit-backdrop-filter;
+    transition-property: background-color, -webkit-backdrop-filter;
+    transition-property: backdrop-filter, background-color;
+    transition-property: backdrop-filter, background-color, -webkit-backdrop-filter;
+    -webkit-transition-duration: .15s;
+    transition-duration: .15s;
+    -webkit-transition-timing-function: cubic-bezier(.455,.03,.515,.955);
+    transition-timing-function: cubic-bezier(.455,.03,.515,.955);
+    height:50px;
+    border-radius: 100px;
+    padding: 0 10px;
+}
+.navbar .links ul li a {
+    color: var(--black);
+    -webkit-transition-property: color, background-color;
+    transition-property: color, background-color;
+    -webkit-transition-duration: .15s;
+    transition-duration: .15s;
+    -webkit-transition-timing-function: cubic-bezier(.645,.045,.355,1);
+    transition-timing-function: cubic-bezier(.645,.045,.355,1);
+    line-height: 22px;
 }
 nav ul {
     border-radius: 100px;
@@ -135,7 +158,6 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #cfcfcf;
 }
-
 main {
     width:100%;
 }
@@ -201,9 +223,17 @@ footer p {
     background-image: url(../../images/main-bg.jpg);
     background-position: center;
     background-size: cover;
-    height:70vh;
+}
+.landing-section .overlay{
 }
 .overlay{
+    width:100%;
+    height:100%;
+}
+.overlay.black-overlay{
+    background-color: rgba(0, 0, 0, 0.55);
+}
+.overlay.white-overlay{
     background-color: rgba(255, 255, 255, 0.85);
 }
 .section.search .container{
@@ -332,11 +362,78 @@ footer p {
     width: 75%;
     padding: 0 1rem;
   }
-  .show {
-    width: 85%;
-    border: 1px solid red;
-  }
+.navbar-element.scrolled-top nav ul{
+    box-shadow: none;
+    background-color: transparent;
+}
+.navbar-element.scrolled-top nav ul li a{
+    color:var(--white);
+    border:1px solid transparent;
+    transition: all .5s;
+}
+.navbar-element.scrolled-top nav ul li a:hover{
+    background-color: transparent;
+    border:1px solid #e6e6e6;
+    
+}
+.navbar-element.scrolled-top .mini-search-container{
+    background-color: transparent;
+    border:1px solid #e6e6e6;
+}
 
+.navbar-element.scrolled-top .mini-search-container .search__box{
+    color: var(--white) !important;
+}
+.navbar-element.scrolled-top .mini-search-container .search__box::placeholder{
+    color:var(--white) !important;
+}
+.navbar-element.scrolled-top .mini-search-container i{
+    color:var(--white) !important;
+}
+.navbar-element.scrolled-top .logo-container{
+    background-color: transparent;
+}
+
+.xl-title{
+    font-size: var(--text-title-size-large) !important;
+    color:white !important;
+    font-weight: bold !important;
+    width:30vw;
+}
+.multiple-titles{
+    flex-direction: column;
+    align-items: center;
+    height:65vh;
+}
+.mini-title{
+    color: var(--main-color);
+}
+.tablet{
+    width:90%;
+    height:70vh;
+    margin: 0 auto;
+    border: 12px solid #0e0e0e;
+    border-bottom: none;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+.tablet-content{
+    background-image: url(../../images/math-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    -webkit-animation: 30s infinite scroll-tablet;
+    width:100%;
+    height: 100%;
+}
+
+@keyframes scroll-tablet {
+    0%, 100% {
+        background-position: top;
+    }
+    50% {
+        background-position: bottom;
+    }
+  }
 
 @media (max-width: 1025px) {
     .container{

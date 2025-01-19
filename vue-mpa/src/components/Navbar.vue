@@ -2,7 +2,9 @@
     <header class="navbar-element scrolled-top">
        <nav class="navbar">
         <div class="logo">
-          
+          <div class="logo-container">
+            
+          </div>
         </div>
         <div class="links">
           <ul>
