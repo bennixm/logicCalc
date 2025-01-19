@@ -1,7 +1,13 @@
 <template>
-  <div>
-    <h1>Contact Us</h1>
-    <p>Feel free to reach out through this page.</p>
+<div class="section page contact">
+  <div class="overlay shadow-overlay">
+      <div class="container">
+      <div class="title-container multiple-titles">
+        <span class="title xl-title">Contact</span>
+        <span class="mini-title">Write a message</span>
+      </div>
+      </div>
+    </div>
   </div>
 </template>
 
