@@ -1,4 +1,9 @@
 <template>
+  <div class="landing-section">
+    <div class="container">
+
+    </div>
+  </div>
 <div class="section search">
   <div class="overlay">
     <div class="container">
@@ -12,6 +17,7 @@
 </div>
 <div class="section three-elements">
   <div class="container">
+    <div class="title-container center-title"><span class="title">Most used calculators</span></div>
     <div class="line">
         <div class="element">
         </div>
