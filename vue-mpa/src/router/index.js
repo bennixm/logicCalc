@@ -5,6 +5,7 @@ import Calculators from '../components/Calculators.vue';
 import Contact from '../components/Contact.vue';
 import MathematicalOperations from '../components/MathematicalOperations.vue';
 import LogicOperations from '../components/LogicOperations.vue';
+import TruthTable from '../components/TruthTable.vue';
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
@@ -13,6 +14,7 @@ const routes = [
   { path: '/contact', name: 'Contact', component: Contact },
   { path: '/logical-operations', name: 'Logical Operations', component: LogicOperations },
   { path: '/mathematical-operations', name: 'Mathematical Operations', component: MathematicalOperations },
+  { path: '/truth-table', name: 'Truth Table', component: TruthTable },
 ];
 
 const router = createRouter({
