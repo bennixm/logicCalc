@@ -3,7 +3,7 @@
   <div class="overlay shadow-overlay">
       <div class="container">
       <div class="title-container multiple-titles">
-        <span class="title xl-title">Truth Table</span>
+        <span class="title xl-title">Truth table</span>
         <span class="mini-title">You can now generate a truth table!</span>
       </div>
       </div>
@@ -30,8 +30,8 @@
         <button @click="addVariable" :disabled="variables.length >= 5" class="button-tt">Add Variable</button>
 
         <div class="button-calc-wrapper">
-                <button @click="generateTruthTable" class="border-animation-button">
-                    <span class="button-text">Generate Truth Table</span>
+                <button @click="generateTruthtable" class="border-animation-button">
+                    <span class="button-text">Generate Truth table</span>
                     <div class="border-top"></div>
                     <div class="border-right"></div>
                     <div class="border-bottom"></div>
@@ -40,7 +40,7 @@
         </div>
       </div>
   
-      <table v-if="truthTable.length">
+      <table v-if="truthtable.length">
         <thead>
           <tr>
             <th v-for="(variable, index) in variables" :key="index">{{ variable.name }}</th>
@@ -48,7 +48,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(row, index) in truthTable" :key="index">
+          <tr v-for="(row, index) in truthtable" :key="index">
             <td v-for="(value, vIndex) in row.slice(0, variables.length)" :key="vIndex" :class="getClass(value)">
               {{ value }}
             </td>
@@ -67,7 +67,7 @@
     data() {
       return {
         variables: [{ name: 'A', operator: '' }, { name: 'B', operator: '&&' }],
-        truthTable: [],
+        truthtable: [],
         expression: '', // To store the full expression for the header
       };
     },
@@ -78,10 +78,10 @@
           this.variables.push({ name: newVariableName, operator: '&&' });
   
           // After adding the new variable, regenerate the truth table
-          this.generateTruthTable();
+          this.generateTruthtable();
         }
       },
-      generateTruthTable() {
+      generateTruthtable() {
         // Validate inputs
         if (this.variables.length < 2) {
           Swal.fire('Input Error', 'Please enter at least two variables and select an operation.', 'error');
@@ -134,7 +134,7 @@
           return [...combination, result];
         });
   
-        this.truthTable = results;
+        this.truthtable = results;
       },
       generateCombinations(numVars) {
         const combinations = [];
