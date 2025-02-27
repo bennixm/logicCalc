@@ -260,8 +260,9 @@ footer p {
     flex-wrap: wrap;
 }
 .three-elements .container .line .element{
-    width:32%;
-    height:200px;
+    width:31%;
+    padding:1%;
+    min-height:200px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -269,12 +270,30 @@ footer p {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    align-content: space-between;
-    justify-content: flex-end;
     border-top: 2px solid var(--main-color);
     transition: all .5s;
     cursor: pointer;
     margin-bottom:2%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.three-elements .container .line .element img{
+    width:70%;
+    height: 170px;
+    object-fit: contain;
+    transition:all .5s;
+}
+.three-elements .container .line .element img:hover{
+    transform: scale(1.05);
+}
+.three-elements .container .line .element .element-title{
+    font-size:17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color:var(--main-color);
+    max-width:85%;
+    text-align: center;
 }
 .category-pick .line{
     justify-content: space-evenly !important;
@@ -586,6 +605,194 @@ footer p {
 .chat-input::placeholder{
     color:white;
 }
+.truth-table-menu-itm{
+    display:flex;
+    flex-direction: column;
+    width:40%;
+    align-items: center;
+    justify-content: center;
+}
+.logical-calculator-section{
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+.truth-table-menu{
+    margin-bottom: 2vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.truth-table-menu button{
+    width:30%;
+    margin-bottom: 1vh;
+    padding:2%;
+    cursor:pointer;
+    box-shadow: 0 0 20px #d9dfee;
+    background-color: var(--main-color);
+    color:white;
+    font-weight: bold;
+    border:none;
+    transition:all .5s;
+}
+.truth-table-menu .button-tt{
+    font-size: 1.1rem;
+}
+.truth-table-menu .button-tt{
+    background-color: #006e93;
+}
+.truth-table-menu-itm select{
+        width:40%;
+        margin-bottom: 1vh;
+        padding:2%;
+        text-align: center;
+        background-color: var(--main-color);
+        color:white;
+        font-weight: bold;
+        outline:none;
+        border:none;
+}
+.truth-table-menu-itm input{
+    width:60%;
+    margin-bottom: 1vh;
+    padding: 2%;
+    text-align: center;
+    border:none;
+    box-shadow: 0 0 20px #d9dfee;
+    border-radius: 5px;
+    border-bottom: 2px solid var(--main-color);
+    outline:none;
+    cursor: text;
+}
+.logical-calculator-section table, th, td {
+    border: 1px solid white;
+  }
+
+  .logical-calculator-section table{
+    box-shadow: 0 0 20px #d9dfee;
+    overflow-x:auto;
+  }
+
+.logical-calculator-section table thead tr{
+    background-color: var(--main-color);
+    color:white;
+}
+
+.logical-calculator-section .true-cell {
+    background-color: #e7e7e7;
+  }
+  
+  .logical-calculator-section .false-cell {
+    background-color: #cfcfcf;
+  }
+
+  .button-calc-wrapper{
+    width:30%;
+}
+.button-calc-wrapper .border-animation-button {
+    position: relative;
+    padding: 1.2rem 2.4rem;
+    font-size: 1.1rem;
+    color: var(--main-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+    width:100%;
+    box-shadow: 0 0 20px #d9dfee;
+}
+
+.button-calc-wrapper .border-animation-button .button-text {
+    position: relative;
+    z-index: 1;
+}
+
+.button-calc-wrapper .border-animation-button div {
+    position: absolute;
+    background: var(--main-color);
+}
+
+.button-calc-wrapper .border-top, .border-bottom {
+    width: 0;
+    height: 1px;
+    transition: width 0.3s ease;
+}
+
+.button-calc-wrapper .border-right, .border-left {
+    width: 1px;
+    height: 0;
+    transition: height 0.3s ease;
+}
+
+.button-calc-wrapper .border-top { top: 0; right: 0; }
+.button-calc-wrapper .border-right { top: 0; right: 0; }
+.button-calc-wrapper .border-bottom { bottom: 0; left: 0; }
+.button-calc-wrapper .border-left { bottom: 0; left: 0; }
+
+.button-calc-wrapper .border-animation-button:hover .border-top,
+.button-calc-wrapper .border-animation-button:hover .border-bottom {
+    width: 100%;
+}
+
+.button-calc-wrapper .border-animation-button:hover .border-right,
+.button-calc-wrapper .border-animation-button:hover .border-left {
+    height: 100%;
+}
+.basic-calculator{
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+  
+.basic-calculator .calculator {
+    width: 300px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  .basic-calculator .result {
+    width: 90%;
+    padding: 10px;
+    font-size: 20px;
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  
+  .basic-calculator .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .basic-calculator button {
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+  
+  .basic-calculator .number, .operator {
+    background-color: #f0f0f0;
+  }
+  
+  .basic-calculator .clear, .equal {
+    background-color:var(--main-color);
+    color: #fff;
+  }
+  
+  .basic-calculator button:hover {
+    background-color: #ddd;
+  }
+  
+  .basic-calculator .equal {
+    grid-column: span 2;
+  }
+  
+
+
+
+
 @keyframes scroll-tablet {
     0%, 100% {
         background-position: top;
@@ -613,6 +820,26 @@ footer p {
     }
 }
 @media (max-width: 768px) {
+    .truth-table-menu-itm input{
+        width:100%;
+        padding:1vh;
+    }
+    .truth-table-menu-itm select{
+        width:100%;
+        padding:1vh;
+    }
+    .truth-table-menu-itm{
+        width:80%;
+    }
+    .truth-table-menu button{
+        width:80%;
+    }
+    .button-calc-wrapper .border-animation-button{
+        width:100%;
+    }
+    .button-calc-wrapper{
+        width:80%;
+    }
     :root {
         --text-medium-size:4vw;
         --text-large-size:6vw;
@@ -651,6 +878,7 @@ footer p {
     }
     .section.page .title-container .xl-title{
         width:max-content;
+        max-width: 80%;
     }
     nav ul {
         text-align: left;
