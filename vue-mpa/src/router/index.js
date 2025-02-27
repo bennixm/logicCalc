@@ -8,6 +8,7 @@ import LogicOperations from '../components/LogicOperations.vue';
 import TruthTable from '../components/TruthTable.vue';
 import PropositionalLogicSolver from '../components/PropositionalLogicSolver.vue';
 import BasicCalculator from '../components/BasicCalculator.vue';
+import CircuitBuilder from '../components/circuit-builder/CircuitBuilder.vue';
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
@@ -19,6 +20,7 @@ const routes = [
   { path: '/truth-table', name: 'Truth Table', component: TruthTable },
   { path: '/propositional-logic-solver', name: 'Propositional Logic Solver', component: PropositionalLogicSolver },
    { path: '/calculator', name: 'Basic Calculator', component: BasicCalculator },
+   { path: '/circuit-builder', name: 'Circuit Builder', component: CircuitBuilder },
 ];
 
 const router = createRouter({
