@@ -24,10 +24,14 @@
   <div class="container">
     <div class="title-container center-title"><span class="title">Choose a category</span></div>
     <div class="line">
-        <div class="element">
-        </div>
-        <div class="element">
-        </div>
+      <router-link to="/mathematical-operations" class="element">
+        <img src="../images/math.jpg">
+        <span class="element-title">Mathematical Operations</span>
+      </router-link>
+      <router-link to="/logical-operations" class="element">
+        <img src="../images/logic.jpg">
+        <span class="element-title">Logical Operations</span>
+      </router-link>
     </div>
   </div>  
 </div>
