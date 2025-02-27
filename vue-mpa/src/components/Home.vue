@@ -16,22 +16,20 @@
   </div>
 <div class="section three-elements">
   <div class="container">
-    <div class="title-container center-title"><span class="title">Most used calculators</span></div>
+    <div class="title-container center-title"><span class="title">You should try this..</span></div>
     <div class="line">
-        <div class="element">
-        </div>
-        <div class="element">
-        </div>
-        <div class="element">
-        </div>
-        <div class="element">
-        </div>
-        <div class="element">
-        </div>
-        <div class="element">
-        </div>
-        <div class="element">
-        </div>
+      <router-link to="/calculator" class="element">
+        <img src="../images/calc.jpg">
+        <span class="element-title">Calculator</span>
+      </router-link>
+      <router-link to="/truth-table" class="element">
+        <img src="../images/table.jpg">
+        <span class="element-title">Truth Table</span>
+      </router-link>
+      <router-link to="/circuit-builder" class="element">
+        <img src="../images/circuits.jpg">
+        <span class="element-title">Circuit Builder</span>
+      </router-link>
     </div>
   </div>  
 </div>

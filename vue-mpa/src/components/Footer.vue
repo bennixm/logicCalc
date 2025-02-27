@@ -4,22 +4,21 @@
    <div class="container">
     <div class="columns">
       <span class="title">Pages</span>
-      <a>About</a>
-      <a>Calculators</a>
-      <a>Contact</a>
+      <router-link to="/">Home</router-link>
+      <router-link to="/about">About us</router-link>
+      <router-link to="/calculators">Calculators</router-link>
+      <router-link to="/contact">Contact</router-link>
     </div>
     <div class="columns">
       <span class="title">Categories</span>
-      <a>Logical Calculator</a>
-      <a>Mathematical Calculator</a>
+      <router-link to="/mathematical-operations">Mathematical Operations</router-link>
+      <router-link to="/logical-operations">Logical Operations</router-link>
     </div>
     <div class="columns">
       <span class="title">Apps</span>
-      <a>Aplication 1</a>
-      <a>Aplication 1</a>
-      <a>Aplication 1</a>
-      <a>Aplication 1</a>
-      <a>Aplication 1</a>
+      <router-link to="/truth-table">Truth Table</router-link>
+      <router-link to="/calculator">Calculator</router-link>
+      <router-link to="/circuit-builder">Circuit Builder</router-link>
     </div>
    </div>
   </div>

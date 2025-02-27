@@ -9,69 +9,71 @@
       </div>
     </div>
   </div>
-<div class="section ai-bot">
-<div class="overlay black-overlay">
+<div class="section contact-section-form">
+<div class="overlay white-overlay">
 <div class="container">
-<div class="chat-container">
-  <div class="chat-window">
-    <div class="chat-head">
-      <div class="chat-img"></div>
-      <div class="chat-bot-name">Logicus</div>
-    </div>
-    <div class="chat-content">
-      <div v-for="message in messages" :key="message.id" class="message">
-        <div v-if="message.type === 'user'" class="message-text user-message">{{ message.text }}</div>
-        <div v-if="message.type === 'ai'" class="message-text ai-message">{{ message.text }}</div>
-      </div>
-    </div>
-    <input
-      v-model="userInput"
-      @keyup.enter="sendMessage"
-      placeholder="Ask me anything!"
-      class="chat-input"
-    />
-  </div>
-</div>
-  <div class="logiBot">
-
-  </div>
+  <form @submit.prevent="submitForm" class="contact-form">
+    <div class="container-title-sec">Send us a message!</div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" v-model="form.name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" v-model="form.email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" v-model="form.phone" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" v-model="form.message" required></textarea>
+          </div>
+          <div class="button-calc-wrapper">
+                <button type="submit" class="border-animation-button">
+                    <span class="button-text">Send</span>
+                    <div class="border-top"></div>
+                    <div class="border-right"></div>
+                    <div class="border-bottom"></div>
+                    <div class="border-left"></div>
+                </button>
+        </div>
+        </form>
+        <div class="assistance-form">
+          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+          <span class="p-assist">We are here to help you with any issues you encounter on our platform!</span>
+        </div>
 </div>
 </div>
 </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   name: "ContactPage",
   data() {
     return {
-      userInput: '',
-      messages: [],
+      form: {
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      },
     };
   },
   methods: {
-    async sendMessage() {
-      if (!this.userInput) return;
-
-      const userMessage = { type: 'user', text: this.userInput };
-      this.messages.push(userMessage);
-
+    async submitForm() {
       try {
-        const response = await axios.post('http://localhost:3000/ask', {
-          query: this.userInput,
-        });
-
-        const aiMessage = { type: 'ai', text: response.data.answer };
-        this.messages.push(aiMessage);
+        const response = await axios.post("/api/send-email", this.form);
+        alert("Message sent successfully!");
+        // Reset form after successful submission
+        this.form = { name: "", email: "", phone: "", message: "" };
       } catch (error) {
-        console.error('Error:', error);
-        const aiMessage = { type: 'ai', text: 'Sorry, something went wrong!' };
-        this.messages.push(aiMessage);
+        alert("Failed to send message. Please try again.");
       }
-
-      this.userInput = '';
     },
   },
 };
