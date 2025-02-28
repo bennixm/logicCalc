@@ -66,43 +66,44 @@ export default {
 </script>
 
 <style>
-.sidebar {
+.circuit-builder .sidebar {
   width: 250px; /* Reduced width */
-  background: #f4f4f4;
+  box-shadow: 0 0 20px #d9dfee;
+  border-radius: 10px;
   padding: 15px;
   display: flex;
   flex-direction: column;
   border-right: 2px solid #ddd;
 }
 
-h2 {
+.circuit-builder h2 {
   text-align: center;
   margin-bottom: 10px;
 }
 
-.table {
+.circuit-builder .table {
   display: flex;
   flex-direction: column;
 }
 
-.table-row {
+.circuit-builder .table-row {
   margin-bottom: 15px;
 }
 
-h3 {
+.circuit-builder h3 {
   text-align: center;
   color: #333;
   margin-bottom: 5px;
 }
 
-.item-grid {
+.circuit-builder .item-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Adjusted columns */
   gap: 10px;
   justify-items: center;
 }
 
-.gate-item, .output-item, .wire-item {
+.circuit-builder .gate-item, .output-item, .wire-item {
   width: 60px; /* Reduced width */
   text-align: center;
   cursor: grab;
@@ -113,16 +114,16 @@ h3 {
   transition: transform 0.2s;
 }
 
-.gate-item:hover, .output-item:hover, .wire-item:hover {
+.circuit-builder .gate-item:hover, .output-item:hover, .wire-item:hover {
   transform: scale(1.1);
 }
 
-.gate-item img, .output-item img, .wire-item img {
+.circuit-builder .gate-item img, .output-item img, .wire-item img {
   width: 35px; /* Reduced size */
   height: 35px; /* Reduced size */
 }
 
-p {
+.circuit-builder p {
   font-size: 12px;
   margin-top: 5px;
 }

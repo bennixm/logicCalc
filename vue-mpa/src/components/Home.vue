@@ -30,6 +30,18 @@
         <img src="../images/circuits.jpg">
         <span class="element-title">Circuit Builder</span>
       </router-link>
+      <router-link to="/age-calculator" class="element">
+        <img src="../images/age.jpg">
+        <span class="element-title">Age Calculator</span>
+      </router-link>
+      <router-link to="/bmi-calculator" class="element">
+        <img src="../images/weight.jpg">
+        <span class="element-title">BMI Calculator</span>
+      </router-link>
+      <router-link to="/emi-calculator" class="element">
+        <img src="../images/wage.jpg">
+        <span class="element-title">EMI Calculator</span>
+      </router-link>
     </div>
   </div>  
 </div>

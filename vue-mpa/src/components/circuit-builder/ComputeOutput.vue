@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style>
-.output-display {
+.circuit-builder .output-display {
   margin-top: 20px;
   text-align: center;
   font-size: 18px;

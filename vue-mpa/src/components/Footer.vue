@@ -19,6 +19,10 @@
       <router-link to="/truth-table">Truth Table</router-link>
       <router-link to="/calculator">Calculator</router-link>
       <router-link to="/circuit-builder">Circuit Builder</router-link>
+      <router-link to="/emi-calculator">Loan EMI Calculator</router-link>
+      <router-link to="/age-calculator">Age Calculator</router-link>
+      <router-link to="/bmi-calculator">Bmi Calculator</router-link>
+      <router-link to="/emi-calculator">Emi Calculator</router-link>
     </div>
    </div>
   </div>

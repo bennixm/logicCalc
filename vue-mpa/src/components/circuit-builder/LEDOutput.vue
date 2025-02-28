@@ -65,11 +65,11 @@ export default {
 </script>
 
 <style>
-.led-output {
+.circuit-builder .led-output {
   position: absolute;
   cursor: grab;
 }
-.led-endpoint {
+.circuit-builder .led-endpoint {
   cursor: pointer;
   pointer-events: all;
 }
