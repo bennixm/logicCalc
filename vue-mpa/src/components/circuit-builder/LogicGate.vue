@@ -1,10 +1,11 @@
 <template>
   <svg
     class="logic-gate"
+    :id="'gate-' + id"
     :style="{ left: position.x + 'px', top: position.y + 'px' }"
     draggable="true"
-    :data-id="'gate-' + id"
->
+    @dragend="moveElement"
+  >
 
     <rect x="10" y="10" width="80" height="50" stroke="black" stroke-width="2" fill="white" />
     <text x="50" y="30" text-anchor="middle" font-size="14" fill="black">{{ type }}</text>

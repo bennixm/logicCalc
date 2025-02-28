@@ -106,89 +106,125 @@ export default {
     computeOutput() {
   console.log("🔵 Starting Computation...");
 
-  // Step 1: Compute outputs for all gates
+  // Step 1: Compute all gate outputs
   this.gates.forEach(gate => {
     this.$refs.gate[gate.id]?.computeOutput();
     console.log(`✅ Gate ${gate.id} computed output: ${gate.output}`);
   });
 
-  // Step 2: Ensure Wires Transfer Values
+  // Step 2: Transmit Values via Wires
   this.wires.forEach(wire => {
     const sourceGate = this.gates.find(gate => gate.id === wire.startId);
-    const targetGate = this.gates.find(gate => gate.id === wire.endId);
     const targetLED = this.leds.find(led => led.id === wire.endId);
 
     if (sourceGate) {
       console.log(`📡 Wire ${wire.id} transmitting ${sourceGate.output} from Gate ${sourceGate.id}`);
 
-      // If connected to another gate, send value to input
-      if (targetGate) {
-        if (targetGate.input1 === undefined || targetGate.input1 === null) {
-          targetGate.input1 = sourceGate.output;
-        } else {
-          targetGate.input2 = sourceGate.output;
-        }
-        console.log(`🎛 Gate ${targetGate.id} received inputs: ${targetGate.input1}, ${targetGate.input2}`);
-      }
+      // ✅ Ensure Vue Reactivity
+      this.leds = this.leds.map(led => 
+        led.id === targetLED?.id
+          ? { ...led, value: sourceGate.output }
+          : led
+      );
 
-      // If connected to LED, update its value
       if (targetLED) {
-        targetLED.value = sourceGate.output;
-        console.log(`💡 LED ${targetLED.id} turned ${targetLED.value === 1 ? "ON 🔴" : "OFF ⚫"}`);
+        console.log(`💡 LED ${targetLED.id} set to ${targetLED.value}`);
       }
     }
   });
 
-  // Step 3: Force UI Update
-  this.$forceUpdate();
+  this.$forceUpdate(); // Force Vue to detect changes
 }
 ,
 
+connectElements(sourceId, targetId) {
+  console.log(`✅ Attempting to connect ${sourceId} → ${targetId}`);
 
-    /**
-     * 🔗 Connect Elements (Gates, LEDs, Speakers) through Wires
-     */
-    connectElements(sourceId, targetId) {
-      const sourceGate = this.gates.find(g => g.id === sourceId);
-      const targetGate = this.gates.find(g => g.id === targetId);
-      const targetLED = this.leds.find(led => led.id === targetId);
-      const targetSpeaker = this.speakers.find(speaker => speaker.id === targetId);
-      const wire = this.wires.find(w => w.startId === sourceId && w.endId === targetId);
+  if (typeof targetId === "string" && targetId.startsWith("led-")) {
+    targetId = parseInt(targetId.replace("led-", ""), 10);
+  }
 
-      if (sourceGate) {
-        console.log(`✅ Connecting Gate ${sourceId} to Component ${targetId}`);
+  const sourceGate = this.gates.find(g => g.id === sourceId);
+  const targetGate = this.gates.find(g => g.id === targetId);
+  const targetLED = this.leds.find(led => led.id === targetId);
+  let wire = this.wires.find(w => w.startId === sourceId && w.endId === targetId);
 
-        // Ensure the wire is correctly assigned
-        if (wire) {
-          console.log(`🔗 Wire Found: ${wire.startId} → ${wire.endId}`);
-        } else {
-          console.warn(`⚠️ No Wire Exists Between ${sourceId} → ${targetId}`);
-        }
+  if (!sourceGate) {
+    console.error(`🚨 Source Gate ${sourceId} Not Found!`);
+    return;
+  }
 
-        // Update gates
-        if (targetGate) {
-          if (targetGate.input1 === null) {
-            targetGate.input1 = sourceGate.output;
-          } else if (targetGate.input2 === null) {
-            targetGate.input2 = sourceGate.output;
-          }
-        }
+  if (!targetGate && !targetLED) {
+    console.error(`🚨 Target Component ${targetId} Not Found!`);
+    return;
+  }
 
-        // Update LEDs
-        if (targetLED) {
-          targetLED.connectedTo = sourceGate.id;
-          targetLED.value = sourceGate.output;
-          console.log(`💡 LED ${targetLED.id} now connected to Gate ${sourceGate.id}`);
-        }
+  if (!wire) {
+    console.warn(`⚠️ No Wire Found Between ${sourceId} → ${targetId}. Creating one.`);
+    wire = { id: this.wires.length + 1, startId: sourceId, endId: targetId };
+    this.wires.push(wire);
+  }
 
-        // Update Speaker
-        if (targetSpeaker) {
-          targetSpeaker.connectedTo = sourceGate.id;
-          targetSpeaker.value = sourceGate.output;
-          console.log(`🔊 Speaker ${targetSpeaker.id} now connected to Gate ${sourceGate.id}`);
-        }
+  console.log(`🔗 Wire Confirmed Between ${wire.startId} → ${wire.endId}`);
+
+  // ✅ Gate-to-Gate Connection Handling
+  if (targetGate) {
+    console.log(`🔗 Connecting Gate ${sourceId} Output → Gate ${targetId} Input`);
+
+    if (targetGate.input1 === null) {
+      targetGate.input1 = sourceGate.output;
+      console.log(`🛠 Gate ${targetId} Input1 updated to ${sourceGate.output}`);
+    } else if (targetGate.input2 === null) {
+      targetGate.input2 = sourceGate.output;
+      console.log(`🛠 Gate ${targetId} Input2 updated to ${sourceGate.output}`);
+    } else {
+      console.warn(`⚠️ Gate ${targetId} Already Has Two Inputs!`);
+    }
+
+    // Ensure Vue detects the change
+    this.gates = [...this.gates];
+
+    // **Trigger Computation Again to Update Chain**
+    this.$nextTick(() => {
+      console.log(`🔄 Gate ${targetId} Now Computing With Updated Inputs`);
+
+      // ✅ Process logic correctly after inputs are updated
+      if (targetGate.type === "AND") {
+        targetGate.output = targetGate.input1 && targetGate.input2;
+      } else if (targetGate.type === "OR") {
+        targetGate.output = targetGate.input1 || targetGate.input2;
+      } else if (targetGate.type === "NOT") {
+        targetGate.output = !targetGate.input1;
       }
-    },
+
+      console.log(`🟢 Gate ${targetId} Computed Output: ${targetGate.output}`);
+
+      // ✅ If this gate is connected to an LED, update the LED immediately
+      const connectedLED = this.leds.find(led => led.connectedTo === targetGate.id);
+      if (connectedLED) {
+        connectedLED.value = targetGate.output;
+        console.log(`💡 LED ${connectedLED.id} updated to ${connectedLED.value}`);
+      }
+
+      this.computeOutput();
+    });
+  }
+
+  // ✅ Gate-to-LED Connection Handling (Preserved)
+  if (targetLED) {
+    targetLED.connectedTo = sourceGate.id;
+    targetLED.value = sourceGate.output;
+    console.log(`💡 LED ${targetLED.id} now connected to Gate ${sourceGate.id} → Status: ${sourceGate.output}`);
+
+    this.leds = [...this.leds];
+    console.log(`📡 Updated LEDs:`, this.leds);
+  }
+},
+
+
+
+
+
 
     updateGateOutput(id, output) {
       const gate = this.gates.find(gate => gate.id === id);

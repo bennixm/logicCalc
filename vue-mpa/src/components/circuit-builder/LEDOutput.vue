@@ -1,12 +1,15 @@
 <template>
- <svg
+  <svg
     class="led-output"
+    :id="'led-' + id"
     :style="{ left: position.x + 'px', top: position.y + 'px' }"
     draggable="true"
-    :data-id="'led-' + id"
->
-
-    <circle cx="15" cy="15" r="10" :fill="value === 1 ? 'red' : 'gray'" stroke="black" stroke-width="2" />
+    @dragstart="startDrag"
+    @dragend="moveElement"
+  >
+    <!-- LED Color Updates Based on Computed Status -->
+    <circle cx="15" cy="15" r="10" :fill="ledStatus ? 'green' : 'gray'" stroke="black" stroke-width="2" />
+    
     <circle
       class="led-endpoint"
       cx="30"
@@ -21,12 +24,21 @@
 <script>
 export default {
   props: ["id", "value", "position", "connectedTo"],
-  watch: {
-    value(newValue) {
-      console.log(`💡 LED ${this.id} received value: ${newValue}`);
-      this.$forceUpdate(); // Force UI update
+
+  computed: {
+    ledStatus() {
+      console.log(`🔄 LED ${this.id} Checking Status: ${this.value}`);
+      return this.value === 1;
     }
   },
+
+  watch: {
+    value(newValue) {
+      console.log(`💡 LED ${this.id} Received Value: ${newValue}`);
+      this.$forceUpdate(); // Force UI update if needed
+    }
+  },
+
   data() {
     return {
       dragging: false,
@@ -34,6 +46,7 @@ export default {
       offsetY: 0
     };
   },
+
   methods: {
     startDrag(event) {
       console.log(`🔧 Start dragging LED ${this.id}`);

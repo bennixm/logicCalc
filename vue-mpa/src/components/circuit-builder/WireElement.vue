@@ -1,5 +1,5 @@
 <template>
-  <svg class="wire">
+  <svg v-if="start && end" class="wire">
     <line
       :x1="start.x"
       :y1="start.y"
@@ -31,11 +31,20 @@
 
 <script>
 export default {
-  props: ["id", "start", "end", "startId", "endId"],
+  props: {
+    id: Number,
+    start: { type: Object, default: () => ({ x: 0, y: 0 }) },
+    end: { type: Object, default: () => ({ x: 0, y: 0 }) },
+    startId: Number,
+    endId: Number
+  },
   data() {
     return {
       dragging: null,
     };
+  },
+  mounted() {
+    console.log(`🟢 Wire ${this.id} Mounted:`, this.start, this.end);
   },
   methods: {
     startDragging(point, event) {
@@ -65,9 +74,10 @@ export default {
     confirmConnection(point) {
   console.log(`🔗 Confirm connection for ${point}`);
 
+  // 🔍 Find both gates and LEDs
   const elements = document.querySelectorAll(".gate, .led-output");
   let closestElement = null;
-  let minDistance = 50; // Default threshold in case rect is undefined
+  let minDistance = 50; // Connection threshold
 
   elements.forEach((element) => {
     const rect = element.getBoundingClientRect();
@@ -82,14 +92,13 @@ export default {
     const wireX = point === "start" ? this.start.x : this.end.x;
     const wireY = point === "start" ? this.start.y : this.end.y;
 
-    // Ensure minDistance is based on element size, fallback to 50px if not available
     const dynamicThreshold = rect.width && rect.height ? Math.max(rect.width, rect.height) * 0.75 : 50;
 
     const distance = Math.sqrt(
       Math.pow(elementX - wireX, 2) + Math.pow(elementY - wireY, 2)
     );
 
-    console.log(`📌 Checking element ${element.id} at (${elementX}, ${elementY}) - Distance: ${distance}`);
+    console.log(`📌 Checking element ${element.id || "(No ID)"} at (${elementX}, ${elementY}) - Distance: ${distance}`);
 
     if (distance < dynamicThreshold) {
       closestElement = element;
@@ -97,13 +106,15 @@ export default {
     }
   });
 
-  if (closestElement) {
+  if (closestElement && closestElement.id) {
     console.log(`✅ Connected to element ${closestElement.id}`);
+
+    // 🔗 Emit event for both Gate-to-Gate and Gate-to-LED connections
     this.$emit("connect-elements", this.id, closestElement.id, point);
   } else {
     console.log(`❌ No element close enough to connect (Threshold: ${minDistance}px)`);
   }
-}
+},
 
   }
 };
