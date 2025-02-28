@@ -8,6 +8,9 @@ import LogicOperations from '../components/LogicOperations.vue';
 import TruthTable from '../components/TruthTable.vue';
 import BasicCalculator from '../components/BasicCalculator.vue';
 import CircuitBuilder from '../components/circuit-builder/CircuitBuilder.vue';
+import AgeCalculator from '../components/AgeCalculator.vue';
+import EmiCalculator from '../components/EmiCalculator.vue';
+import BmiCalculator from '../components/BmiCalculator.vue';
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
@@ -19,6 +22,9 @@ const routes = [
   { path: '/truth-table', name: 'Truth Table', component: TruthTable },
    { path: '/calculator', name: 'Basic Calculator', component: BasicCalculator },
    { path: '/circuit-builder', name: 'Circuit Builder', component: CircuitBuilder },
+  { path: '/age-calculator', name: 'Age Calculator', component: AgeCalculator },
+  { path: '/emi-calculator', name: 'Emi Calculator', component: EmiCalculator },
+  { path: '/bmi-calculator', name: 'Bmi Calculator', component: BmiCalculator },
 ];
 
 const router = createRouter({

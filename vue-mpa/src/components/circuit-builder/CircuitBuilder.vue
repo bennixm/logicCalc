@@ -230,25 +230,23 @@ export default {
 <style>
 .circuit-builder {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
-.sidebar {
-  width: 20%;
-}
-.workspace-container {
+.circuit-builder .workspace-container {
   width: 70%;
   margin-left: 20px;
 }
-.workspace {
+.circuit-builder .workspace {
   position: relative;
   width: 100%;
   height: 500px;
-  border: 1px solid black;
+  box-shadow: 0 0 20px #d9dfee;
   overflow: hidden;
   margin-bottom: 20px;
 }
-.compute-btn {
+.circuit-builder .compute-btn {
   padding: 10px 20px;
   font-size: 16px;
   background: #007bff;
@@ -261,7 +259,7 @@ export default {
   margin: 10px auto 0;
   text-align: center;
 }
-.compute-btn:hover {
+.circuit-builder .compute-btn:hover {
   background: #0056b3;
 }
 </style>

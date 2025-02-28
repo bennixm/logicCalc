@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style>
-.speaker {
+.circuit-builder .speaker {
   position: absolute;
   width: 50px;
 }

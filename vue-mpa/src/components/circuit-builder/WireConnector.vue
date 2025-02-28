@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style>
-.wires {
+.circuit-builder .wires {
   position: absolute;
   width: 100%;
   height: 100%;

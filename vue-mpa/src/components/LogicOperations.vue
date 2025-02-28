@@ -45,8 +45,8 @@
           </div>
           </div>
           <div class="subcontent-calculator services-panel-text">
-          <span class="mini-title-section">Logic Circuits</span>
-          <span class="section-text">A Logic Circuits Calculator is a tool designed to help users simulate and evaluate the behavior of digital logic circuits. Logic circuits use basic logical operations like AND, OR, NOT, NAND, NOR, XOR, and XNOR to perform tasks based on binary inputs (0 or 1). This calculator simplifies the process by providing an easy way to input logic gate configurations and observe the resulting output.</span>
+          <span class="mini-title-section">Logical Circuits Builder</span>
+          <span class="section-text">Welcome to the Logical Circuits Builder, an intuitive and powerful tool designed to help you design, simulate, and understand digital circuits. Whether you’re a beginner learning the basics of logic gates or a seasoned engineer testing complex circuit designs, this platform makes it easy to visualize and implement logic systems.</span>
           <div class="button-calc-wrapper">
                 <button @click="goToCircuits" class="border-animation-button">
                     <span class="button-text">Try it now</span>

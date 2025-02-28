@@ -110,13 +110,13 @@ export default {
 </script>
 
 <style>
-.wire {
+.circuit-builder .wire {
   position: absolute;
   width: 100%;
   height: 100%;
   pointer-events: none;
 }
-.wire-endpoint {
+.circuit-builder .wire-endpoint {
   cursor: pointer;
   pointer-events: all;
 }
