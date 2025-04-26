@@ -53,7 +53,7 @@ Run the development server:
 
 | Color             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Main Color | ![#1797c2](https://via.placeholder.com/10/0a192f?text=+) #1797c2 |
+| Main Color | #1797c2 |
 
 
 ## Feedback
